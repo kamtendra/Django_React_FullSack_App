@@ -130,9 +130,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny'
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly' #edit for project level premissions setting
     ]
 }
+# Permissions:
+# AllowAny - no restrictions, allow any request
+# IsAuthenticated - only authenticated, registered users
+# IsAdminUser - only admin/superuser users
+# IsAuthenticatedOrReadOnly - authenticated, read-only users
 
 CORS_ALLOWED_ORIGINS = [     # added port 3000 (for React) to cors allowed origins
     "http://localhost:3000",
